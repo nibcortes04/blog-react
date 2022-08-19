@@ -19,6 +19,12 @@ function Login({}) {
     dispatch(setUser(res.accessToken || res.access_token));
     navigate("/Home");
   };
+
+  React.useEffect(() => {
+    if (currentUser) {
+      navigate("/Home");
+    }
+  }, []);
   return (
     <div className="login-container ">
       <div className="login-container--header">

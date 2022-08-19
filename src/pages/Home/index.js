@@ -2,15 +2,32 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setPosts, setUser } from "../../actions";
+import { setPosts, setUser, setTags } from "../../actions";
+import { getPosts, getTags } from "../../api";
 
 import "./index.css";
 
 function Home({}) {
   const navigate = useNavigate();
   const posts = useSelector((state) => state.posts.list);
+  const tags = useSelector((state) => state.posts.tags);
   const currentUser = useSelector((state) => state.authentication.accessToken);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    const fetchPosts = async () => {
+      const postsRes = await getPosts();
+      dispatch(setPosts(postsRes.data));
+    };
+
+    const fetchTags = async () => {
+      const tagsRes = await getTags();
+      dispatch(setTags(tagsRes.data.slice(6, 16)));
+    };
+
+    fetchPosts();
+    fetchTags();
+  }, []);
 
   const onLogout = (res) => {
     dispatch(setUser(""));
@@ -21,6 +38,9 @@ function Home({}) {
       navigate("/");
     }
   }, [currentUser]);
+
+  console.log(tags);
+  // console.log(posts);
 
   return (
     <div className="home-container ">
