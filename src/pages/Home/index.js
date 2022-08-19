@@ -6,6 +6,8 @@ import { setPosts, setUser, setTags } from "../../actions";
 import { getPosts, getTags } from "../../api";
 
 import { PostCard } from "../../organisms/PostCard";
+import { Overlay } from "../../atoms/Overlay";
+import { SlideModal } from "../../molecules/SlideModal";
 
 import "./index.css";
 
@@ -13,8 +15,11 @@ function Home({}) {
   const navigate = useNavigate();
   const posts = useSelector((state) => state.posts.list);
   const tags = useSelector((state) => state.posts.tags);
+  const commentsPost = useSelector((state) => state.posts.commentsPost);
   const currentUser = useSelector((state) => state.authentication.accessToken);
   const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = React.useState(false);
 
   React.useEffect(() => {
     const fetchPosts = async () => {
@@ -42,7 +47,7 @@ function Home({}) {
   }, [currentUser]);
 
   // console.log(tags);
-  console.log(posts);
+  console.log(commentsPost);
 
   return (
     <div className="home-container ">
@@ -69,9 +74,22 @@ function Home({}) {
 
       <section className="main-container">
         <div className="cards-container">
-          {posts && posts.map((post) => <PostCard key={post.id} post={post} />)}
+          {posts &&
+            posts.map((post) => (
+              <PostCard
+                key={post.id}
+                post={post}
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
+            ))}
         </div>
       </section>
+      <SlideModal showModal={showModal}>
+        <h1>Comentarios</h1>
+        {commentsPost.length > 0 ? "tiene comentarios" : "no tiene comentarios"}
+      </SlideModal>
+      <Overlay showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

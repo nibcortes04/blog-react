@@ -1,8 +1,9 @@
-import { SET_POSTS, SET_TAGS } from "../actions/types";
+import { SET_POSTS, SET_TAGS, SET_COMMENTS_POST } from "../actions/types";
 
 const initialState = {
   list: [],
   tags: [],
+  commentsPost: [],
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +13,9 @@ export default function (state = initialState, action) {
 
     case SET_TAGS:
       return { ...state, tags: action.payload };
+
+    case SET_COMMENTS_POST:
+      return { ...state, commentsPost: action.payload };
 
     default:
       return state;

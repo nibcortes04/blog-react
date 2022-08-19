@@ -19,3 +19,10 @@ export const getTags = () => {
     .then((res) => res.data)
     .catch((err) => console.log(err));
 };
+
+export const getCommentPost = (idPost) => {
+  return axios
+    .get(`https://dummyapi.io/data/v1/post/${idPost}/comment?limit=10`, config)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};
