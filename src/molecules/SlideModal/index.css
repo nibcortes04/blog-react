@@ -1,0 +1,18 @@
+.Modal {
+  position: fixed;
+  background-color: var(--very-light-pink);
+  color: var(--white);
+  height: 100%;
+  display: none;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  right: 0;
+  z-index: 10;
+  min-width: 342px;
+  max-width: 342px;
+}
+
+.Modal.Show {
+  display: block;
+  width: auto;
+  bottom: 0;
+}
