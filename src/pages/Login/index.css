@@ -4,8 +4,18 @@
   align-items: center;
   height: 100vh;
 }
+.login-container--header h1 {
+  color: var(--hospital-green);
+  font-size: var(--xxlg);
+}
 
+.login-container--register {
+  border: 1px solid var(--very-light-pink);
+  border-radius: 10px;
+  padding: 50px;
+}
 .login-container--register h3 {
+  color: var(--hospital-green);
   padding-bottom: 10%;
 }
 

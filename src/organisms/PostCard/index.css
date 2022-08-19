@@ -1,0 +1,51 @@
+/* Post List */
+.post-card {
+  width: 240px;
+  border: 1px solid var(--very-light-pink);
+  padding: 5px;
+  border-radius: 10px;
+}
+.post-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.post-card-user {
+  color: var(--hospital-green);
+  text-align: center;
+  font-size: var(--lg);
+  height: 44px;
+  margin-bottom: 10px;
+}
+
+.post-card-tags {
+  padding-left: 10px;
+  color: var(--hospital-green);
+}
+
+.post-card-tag {
+  text-align: center;
+  color: var(--white);
+}
+
+.post-card-tag p {
+  background-color: var(--hospital-green);
+  border-radius: 50px;
+}
+
+@media (max-width: 640px) {
+  .post-card {
+    width: 140px;
+  }
+  .post-card img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (min-width: 641px) {
+  .post-card-tag {
+    padding: 0 40px;
+  }
+}

@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPosts, setUser, setTags } from "../../actions";
 import { getPosts, getTags } from "../../api";
 
+import { PostCard } from "../../organisms/PostCard";
+
 import "./index.css";
 
 function Home({}) {
@@ -39,8 +41,8 @@ function Home({}) {
     }
   }, [currentUser]);
 
-  console.log(tags);
-  // console.log(posts);
+  // console.log(tags);
+  console.log(posts);
 
   return (
     <div className="home-container ">
@@ -67,57 +69,7 @@ function Home({}) {
 
       <section className="main-container">
         <div className="cards-container">
-          <div className="post-card">
-            <div className="">
-              <h3>name</h3>
-            </div>
-            <div className="">
-              <img
-                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className=""
-              />
-            </div>
-            <div className="">
-              <div className="">
-                <h4>tags</h4>
-              </div>
-            </div>
-          </div>
-          <div className="post-card">
-            <div className="">
-              <h3>name</h3>
-            </div>
-            <div className="">
-              <img
-                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className=""
-              />
-            </div>
-            <div className="">
-              <div className="">
-                <h4>tags</h4>
-              </div>
-            </div>
-          </div>
-          <div className="post-card">
-            <div className="">
-              <h3>name</h3>
-            </div>
-            <div className="">
-              <img
-                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className=""
-              />
-            </div>
-            <div className="">
-              <div className="">
-                <h4>tags</h4>
-              </div>
-            </div>
-          </div>
+          {posts && posts.map((post) => <PostCard key={post.id} post={post} />)}
         </div>
       </section>
     </div>
