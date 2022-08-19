@@ -15,7 +15,8 @@
     "react-social-login-buttons": "^3.6.1",
     "reactjs-social-login": "^2.5.5",
     "redux": "^4.2.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "homepage": "https://nibcortes04.github.io/blog-react"
   },
   "scripts": {
     "start": "react-scripts start",
