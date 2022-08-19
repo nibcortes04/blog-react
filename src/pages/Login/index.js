@@ -8,7 +8,7 @@ function Login({}) {
   return (
     <div className="login-container ">
       <div className="login-container--header">
-        <h1>Challenge-React</h1>
+        <h1>Blog-React</h1>
       </div>
       <div className="login-container--register">
         <h3>Inicia seccion con tus redes sociales.</h3>

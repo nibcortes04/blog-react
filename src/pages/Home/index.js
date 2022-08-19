@@ -34,7 +34,7 @@ function Home({}) {
 
       <section className="main-container">
         <div className="cards-container">
-          <div className="product-card">
+          <div className="post-card">
             <div className="">
               <h3>name</h3>
             </div>
@@ -51,7 +51,7 @@ function Home({}) {
               </div>
             </div>
           </div>
-          <div className="product-card">
+          <div className="post-card">
             <div className="">
               <h3>name</h3>
             </div>
@@ -68,7 +68,7 @@ function Home({}) {
               </div>
             </div>
           </div>
-          <div className="product-card">
+          <div className="post-card">
             <div className="">
               <h3>name</h3>
             </div>
