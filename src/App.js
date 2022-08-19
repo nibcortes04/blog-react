@@ -7,7 +7,7 @@ import { Home } from "./pages/Home";
 function App() {
   return (
     <div className="App">
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route exact path="/" element={<Login />} />
         <Route exact path="/Home" element={<Home />} />
       </Routes>
