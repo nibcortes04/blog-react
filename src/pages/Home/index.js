@@ -1,10 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setPosts, setUser } from "../../actions";
 
 import "./index.css";
 
 function Home({}) {
   const navigate = useNavigate();
+  const posts = useSelector((state) => state.posts.list);
+  const currentUser = useSelector((state) => state.authentication.accessToken);
+  const dispatch = useDispatch();
+
+  const onLogout = (res) => {
+    dispatch(setUser(""));
+  };
+
+  React.useEffect(() => {
+    if (!currentUser) {
+      navigate("/");
+    }
+  }, [currentUser]);
+
   return (
     <div className="home-container ">
       <nav>
@@ -20,11 +37,7 @@ function Home({}) {
           <ul>
             <li className="navbar-email">Challenge@correo.com</li>
             <li className="navbar-button">
-              <button
-                className="button"
-                type="submit"
-                onClick={() => navigate("/")}
-              >
+              <button className="button" type="submit" onClick={onLogout}>
                 Cerrar seccion
               </button>
             </li>

@@ -1,0 +1,17 @@
+.login-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container--register h3 {
+  padding-bottom: 10%;
+}
+
+@media (max-width: 640px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
